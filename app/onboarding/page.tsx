@@ -161,7 +161,7 @@ function OnboardingInner() {
                   role === o.v ? "border-brand bg-brand-soft" : "border-line bg-surface hover:bg-surface-2",
                 )}
               >
-                <span className={cn("flex size-12 items-center justify-center rounded-2xl", o.v === "hire" ? "bg-brand text-brand-ink" : "bg-accent text-white")}>
+                <span className={cn("flex size-12 items-center justify-center rounded-2xl", o.v === "hire" ? "bg-brand text-brand-ink" : "bg-accent text-accent-ink")}>
                   <o.icon className="size-6" aria-hidden />
                 </span>
                 <span className="flex-1">

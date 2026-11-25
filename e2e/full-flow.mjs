@@ -31,6 +31,14 @@ async function session(email) {
   });
   const j = await r.json();
   if (!j.access_token) throw new Error(`login failed for ${email}: ${JSON.stringify(j)}`);
+  if (process.env.E2E_RESET === "1") {
+    const rr = await fetch(`${SUPA}/rest/v1/rpc/e2e_reset`, {
+      method: "POST",
+      headers: { apikey: KEY, Authorization: `Bearer ${j.access_token}`, "Content-Type": "application/json" },
+      body: "{}",
+    });
+    if (!rr.ok) throw new Error(`reset failed: ${await rr.text()}`);
+  }
   return j;
 }
 
@@ -175,8 +183,8 @@ step("provider wallet shows KES 2,325 payout (7% fee) and 5.0 rating");
 
 // 10. Swahili + dark mode
 await buyer.goto(`${BASE}/me`);
-await buyer.getByRole("radio", { name: "SW" }).click();
 await buyer.getByRole("radio", { name: "Dark" }).click();
+await buyer.getByRole("radio", { name: "SW" }).click();
 await buyer.goto(`${BASE}/`);
 await buyer.getByText("Unahitaji nini leo?").waitFor();
 await buyer.waitForTimeout(600);

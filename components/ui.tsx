@@ -10,7 +10,7 @@ type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary: "bg-brand text-brand-ink hover:bg-brand-strong active:scale-[0.98]",
-  accent: "bg-accent text-white hover:bg-accent-strong active:scale-[0.98]",
+  accent: "bg-accent text-accent-ink hover:bg-accent-strong active:scale-[0.98]",
   secondary: "bg-surface-2 text-ink hover:bg-line active:scale-[0.98]",
   outline: "border border-line bg-surface text-ink hover:bg-surface-2 active:scale-[0.98]",
   ghost: "text-ink hover:bg-surface-2",
@@ -286,7 +286,7 @@ export function Segmented<T extends string>({
         >
           {o.label}
           {!!o.count && (
-            <span className="rounded-full bg-accent px-1.5 text-[11px] leading-[18px] text-white">{o.count}</span>
+            <span className="rounded-full bg-accent px-1.5 text-[11px] leading-[18px] text-accent-ink">{o.count}</span>
           )}
         </button>
       ))}
