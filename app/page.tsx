@@ -115,7 +115,7 @@ function TopProviders({ county }: { county: number | null }) {
   const fallback = useProviderSearch({ limit: 10 }, !!county && near.data?.length === 0);
   const list = near.data?.length ? near.data : fallback.data ?? [];
   const title = near.data?.length && county ? t("home.topNear", { county: countyName(county) }) : t("home.topKenya");
-  if (!near.isLoading && !list.length) return null;
+  if (!near.isLoading && !fallback.isLoading && !list.length) return <FoundingPros county={county} />;
   return (
     <section className="mt-8">
       <SectionHeader
@@ -130,6 +130,31 @@ function TopProviders({ county }: { county: number | null }) {
         {near.isLoading
           ? Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-48 w-40 shrink-0 rounded-[var(--radius-card)]" />)
           : list.map((p) => <ProviderMiniCard key={p.id} p={p} />)}
+      </div>
+    </section>
+  );
+}
+
+/** Day-one state: no providers yet — recruit supply instead of showing an empty shelf. */
+function FoundingPros({ county }: { county: number | null }) {
+  const { t } = useI18n();
+  const { user, provider } = useAuth();
+  if (provider) return null;
+  const href = user ? "/me/provider?setup=1" : "/login?next=/me/provider?setup=1";
+  return (
+    <section className="mt-8 px-4">
+      <div className="rounded-[var(--radius-card)] border-2 border-dashed border-brand/40 bg-brand-soft/50 p-5">
+        <h2 className="text-[17px] font-extrabold">{t("home.foundingTitle", { county: county ? countyName(county) : "Kenya" })}</h2>
+        <p className="mt-1.5 text-sm leading-relaxed text-ink-2">{t("home.foundingBody")}</p>
+        <ButtonLink href={href} size="sm" className="mt-4">
+          {t("home.foundingCta")}
+        </ButtonLink>
+        <p className="mt-4 border-t border-line pt-3 text-xs text-muted">
+          {t("home.foundingHire")}{" "}
+          <Link href="/jobs/new" className="font-semibold text-brand underline">
+            {t("nav.postJob")}
+          </Link>
+        </p>
       </div>
     </section>
   );

@@ -362,6 +362,8 @@ function SettingsTab() {
         pro_price_kes: Number(s!.pro_price_kes),
         free_quotes_per_month: Number(s!.free_quotes_per_month),
         auto_release_hours: Number(s!.auto_release_hours),
+        founding_slots_per_county: Number(s!.founding_slots_per_county),
+        founding_pro_days: Number(s!.founding_pro_days),
         updated_at: new Date().toISOString(),
       })
       .eq("id", true);
@@ -381,6 +383,8 @@ function SettingsTab() {
       {f("pro_price_kes", "Pro price (KES / month)")}
       {f("free_quotes_per_month", "Free quotes per month")}
       {f("auto_release_hours", "Auto-release escrow after (hours)")}
+      {f("founding_slots_per_county", "Founding pros per county (free Pro)")}
+      {f("founding_pro_days", "Founding pro free days")}
       <Button block onClick={save} loading={busy}>
         {t("common.save")}
       </Button>
