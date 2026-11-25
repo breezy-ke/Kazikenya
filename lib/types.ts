@@ -255,6 +255,8 @@ export interface PlatformSettings {
   pro_days: number;
   free_quotes_per_month: number;
   auto_release_hours: number;
+  founding_slots_per_county: number;
+  founding_pro_days: number;
 }
 
 export type MiniProfile = Pick<Profile, "id" | "full_name" | "avatar_url" | "verification_level" | "county_id" | "town">;

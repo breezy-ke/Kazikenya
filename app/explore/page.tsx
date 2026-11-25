@@ -152,6 +152,9 @@ function ExploreInner() {
                 <ButtonLink href="/jobs/new" variant="accent">
                   {t("nav.postJob")}
                 </ButtonLink>
+                <ButtonLink href="/me/provider?setup=1" variant="ghost">
+                  {t("explore.joinPro")}
+                </ButtonLink>
                 {county && (
                   <Button variant="ghost" onClick={() => update({ county: "all" })}>
                     {t("common.allCounties")}

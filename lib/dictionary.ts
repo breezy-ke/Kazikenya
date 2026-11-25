@@ -99,6 +99,11 @@ export const en = {
   "home.rating": "Rating",
   "home.jobsDone": "Jobs done",
   "home.goPro": "Go Pro — unlimited quotes",
+  "home.foundingTitle": "Founding pros wanted in {county}",
+  "home.foundingBody": "KaziKenya is new here. Join now: free listing, 3 months of Pro free, and first in line for every job nearby.",
+  "home.foundingCta": "Join as a founding pro",
+  "home.foundingHire": "Need help now? Post your job and we'll match you as pros join.",
+  "explore.joinPro": "Are you a pro? List your services free",
   "home.verifyNudge": "Get ID-verified to win 3× more jobs",
   "home.completeProfile": "Complete your profile",
 
@@ -597,6 +602,11 @@ export const sw: Record<DictKey, string> = {
   "home.rating": "Tathmini",
   "home.jobsDone": "Kazi zilizokamilika",
   "home.goPro": "Jiunge Pro — bei bila kikomo",
+  "home.foundingTitle": "Tunatafuta mafundi waanzilishi {county}",
+  "home.foundingBody": "KaziKenya ni mpya hapa. Jiunge sasa: kuorodheshwa bure, miezi 3 ya Pro bure, na kuwa wa kwanza kwa kila kazi karibu nawe.",
+  "home.foundingCta": "Jiunge kama fundi mwanzilishi",
+  "home.foundingHire": "Unahitaji msaada sasa? Weka kazi yako na tutakuunganisha mafundi wakijiunga.",
+  "explore.joinPro": "Wewe ni fundi? Orodhesha huduma zako bure",
   "home.verifyNudge": "Thibitisha ID upate kazi mara 3 zaidi",
   "home.completeProfile": "Kamilisha wasifu wako",
 
