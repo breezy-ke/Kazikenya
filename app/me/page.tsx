@@ -48,6 +48,7 @@ function Row({
         {inner}
       </Link>
     );
+  if (!onClick) return <div className="flex w-full items-center gap-3 px-4 py-3">{inner}</div>;
   return (
     <button onClick={onClick} className={cls}>
       {inner}
@@ -148,7 +149,6 @@ function Account() {
           <Row
             icon={Globe}
             label={t("me.language")}
-            onClick={() => setLocale(locale === "en" ? "sw" : "en")}
             right={
               <Toggle
                 value={locale}

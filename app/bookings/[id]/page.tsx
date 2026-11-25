@@ -258,7 +258,7 @@ function BookingDetail() {
                 {t("common.whatsapp")}
               </a>
             </div>
-          ) : (
+          ) : contactQ.isFetched ? null : (
             <p className="mt-3 flex items-center gap-2 rounded-xl bg-surface-2 px-3 py-2 text-xs text-muted">
               <Lock className="size-3.5 shrink-0" aria-hidden /> {t("bk.contactLocked")}
             </p>

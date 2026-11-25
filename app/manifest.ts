@@ -25,9 +25,5 @@ export default function manifest(): MetadataRoute.Manifest {
       { name: "Find a pro", short_name: "Explore", url: "/explore", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
       { name: "My work", short_name: "My work", url: "/work", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
     ],
-    screenshots: [
-      { src: "/screenshots/home.png", sizes: "780x1688", type: "image/png", form_factor: "narrow", label: "Home" },
-      { src: "/screenshots/explore.png", sizes: "780x1688", type: "image/png", form_factor: "narrow", label: "Find pros" },
-    ],
   };
 }

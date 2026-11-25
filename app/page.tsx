@@ -42,7 +42,7 @@ function SearchBox({ big }: { big?: boolean }) {
         className="h-full min-w-0 flex-1 bg-transparent text-[16px] text-ink outline-none placeholder:text-muted"
         enterKeyHint="search"
       />
-      <button type="submit" className="flex h-full items-center rounded-xl bg-accent px-4 font-bold text-white transition hover:bg-accent-strong active:scale-95">
+      <button type="submit" className="flex h-full items-center rounded-xl bg-accent px-4 font-bold text-accent-ink transition hover:bg-accent-strong active:scale-95">
         {t("common.search")}
       </button>
     </form>
@@ -285,7 +285,7 @@ function SignedOutSections() {
             <li key={i} className="flex gap-4 rounded-[var(--radius-card)] border border-line/70 bg-surface p-4">
               <span className="relative flex size-12 shrink-0 items-center justify-center rounded-2xl bg-brand-soft text-brand-soft-ink">
                 <s.icon className="size-6" aria-hidden />
-                <span className="absolute -right-1.5 -top-1.5 flex size-6 items-center justify-center rounded-full bg-accent text-xs font-bold text-white">{i + 1}</span>
+                <span className="absolute -right-1.5 -top-1.5 flex size-6 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-ink">{i + 1}</span>
               </span>
               <div>
                 <h3 className="font-bold">{s.title}</h3>
@@ -349,7 +349,7 @@ export default function HomePage() {
               <IconButton label={t("notif.title")} className="text-white hover:bg-white/10" onClick={() => router.push("/notifications")}>
                 <Bell className="size-[22px]" />
                 {badges.notifications > 0 && (
-                  <span className="absolute right-1.5 top-1.5 min-w-[18px] rounded-full bg-accent px-1 text-center text-[10px] font-bold leading-[18px]">
+                  <span className="absolute right-1.5 top-1.5 min-w-[18px] rounded-full bg-accent px-1 text-accent-ink text-center text-[10px] font-bold leading-[18px]">
                     {badges.notifications > 9 ? "9+" : badges.notifications}
                   </span>
                 )}
@@ -363,7 +363,7 @@ export default function HomePage() {
 
           {signedIn ? (
             <div className="mt-5">
-              <p className="text-sm font-medium text-white/75">{t("home.greeting", { name: firstName(profile?.full_name) || "" })} 👋</p>
+              <p className="text-sm font-medium text-white/75">{firstName(profile?.full_name) ? t("home.greeting", { name: firstName(profile?.full_name) }) : "Habari"} 👋</p>
               <h1 className="mt-1 text-[26px] font-extrabold leading-tight tracking-tight">{t("home.whereTo")}</h1>
             </div>
           ) : (

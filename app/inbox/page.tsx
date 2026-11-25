@@ -66,7 +66,7 @@ function InboxList() {
                     <div className="mt-0.5 flex items-center gap-2">
                       <p className={cn("truncate text-sm", unread ? "font-semibold text-ink" : "text-muted")}>{c.last_message ?? "…"}</p>
                       {unread > 0 && (
-                        <span className="ml-auto min-w-[20px] shrink-0 rounded-full bg-accent px-1.5 text-center text-[11px] font-bold leading-5 text-white">
+                        <span className="ml-auto min-w-[20px] shrink-0 rounded-full bg-accent px-1.5 text-center text-[11px] font-bold leading-5 text-accent-ink">
                           {unread}
                         </span>
                       )}

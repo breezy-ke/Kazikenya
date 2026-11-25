@@ -100,7 +100,7 @@ function ExploreInner() {
             >
               <SlidersHorizontal className="size-5" />
               {activeFilters > 0 && (
-                <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-accent text-[11px] font-bold text-white">
+                <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-accent text-[11px] font-bold text-accent-ink">
                   {activeFilters}
                 </span>
               )}
@@ -123,7 +123,7 @@ function ExploreInner() {
       <div className="px-4 py-4">
         <div className="mb-3 flex items-center justify-between gap-3">
           <p className="text-sm text-muted" aria-live="polite">
-            {query.isLoading ? t("common.loading") : t("explore.results", { n: rows.length + (query.hasNextPage ? "+" : "") })}
+            {query.isLoading ? t("common.loading") : rows.length === 1 && !query.hasNextPage ? t("explore.results1") : t("explore.results", { n: rows.length + (query.hasNextPage ? "+" : "") })}
           </p>
           {!remote && (
             <label className="relative flex items-center gap-1.5 text-sm font-semibold text-brand">

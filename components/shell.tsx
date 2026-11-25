@@ -46,7 +46,7 @@ export function BottomNav() {
                 <span className={cn("relative flex h-8 w-14 items-center justify-center rounded-full transition", active && "bg-brand-soft")}>
                   <Icon className="size-[22px]" strokeWidth={active ? 2.4 : 2} aria-hidden />
                   {count > 0 && (
-                    <span className="absolute right-2 top-0 min-w-[18px] rounded-full bg-accent px-1 text-center text-[10px] leading-[18px] text-white">
+                    <span className="absolute right-2 top-0 min-w-[18px] rounded-full bg-accent px-1 text-center text-[10px] leading-[18px] text-accent-ink">
                       {count > 9 ? "9+" : count}
                     </span>
                   )}
@@ -93,7 +93,7 @@ export function SideRail() {
       </nav>
       <Link
         href="/jobs/new"
-        className="mt-6 flex h-12 items-center justify-center gap-2 rounded-2xl bg-accent font-semibold text-white hover:bg-accent-strong"
+        className="mt-6 flex h-12 items-center justify-center gap-2 rounded-2xl bg-accent font-semibold text-accent-ink hover:bg-accent-strong"
       >
         <Plus className="size-5" aria-hidden /> {t("nav.postJob")}
       </Link>
@@ -181,7 +181,7 @@ export function Fab({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="fixed bottom-[calc(76px+env(safe-area-inset-bottom))] right-4 z-30 flex h-14 items-center gap-2 rounded-full bg-accent pl-4 pr-5 font-bold text-white shadow-[var(--shadow-float)] transition hover:bg-accent-strong active:scale-95 lg:hidden"
+      className="fixed bottom-[calc(76px+env(safe-area-inset-bottom))] right-4 z-30 flex h-14 items-center gap-2 rounded-full bg-accent pl-4 pr-5 font-bold text-accent-ink shadow-[var(--shadow-float)] transition hover:bg-accent-strong active:scale-95 lg:hidden"
     >
       <Plus className="size-5" aria-hidden />
       {label}
