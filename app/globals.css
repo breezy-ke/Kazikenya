@@ -1,0 +1,188 @@
+@import "tailwindcss";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------------------------------------------------------------------------
+   KaziKenya design tokens — "Bold & warm": forest green + sunrise orange.
+   --------------------------------------------------------------------------- */
+:root {
+  --bg: #f8f7f3;
+  --surface: #ffffff;
+  --surface-2: #f2f0ea;
+  --ink: #0f1f18;
+  --ink-2: #33443c;
+  --muted: #64736b;
+  --line: #e7e3da;
+  --brand: #0e5c39;
+  --brand-strong: #0a4a2d;
+  --brand-ink: #ffffff;
+  --brand-soft: #e3f3ea;
+  --brand-soft-ink: #0b5233;
+  --accent: #f2711c;
+  --accent-strong: #d85c08;
+  --accent-soft: #ffeedd;
+  --accent-soft-ink: #9a3f02;
+  --gold: #e8a317;
+  --danger: #c8312b;
+  --danger-soft: #fde8e6;
+  --info: #1d63c9;
+  --info-soft: #e5eefc;
+  --warn-soft: #fff4d6;
+  --warn-ink: #7a5200;
+  --shadow-color: 15 31 24;
+  --hero-a: #0e5c39;
+  --hero-b: #07351f;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a120e;
+    --surface: #111c17;
+    --surface-2: #18261f;
+    --ink: #edf4f0;
+    --ink-2: #c5d2cb;
+    --muted: #8fa198;
+    --line: #22332b;
+    --brand: #2fb874;
+    --brand-strong: #46c886;
+    --brand-ink: #04170d;
+    --brand-soft: #143224;
+    --brand-soft-ink: #7fe0ad;
+    --accent: #ff8a3d;
+    --accent-strong: #ff9d5c;
+    --accent-soft: #3a2212;
+    --accent-soft-ink: #ffb986;
+    --gold: #f5b938;
+    --danger: #ff6b63;
+    --danger-soft: #3a1513;
+    --info: #6ea8ff;
+    --info-soft: #14243d;
+    --warn-soft: #33290f;
+    --warn-ink: #f5cf6b;
+    --shadow-color: 0 0 0;
+    --hero-a: #0f4a30;
+    --hero-b: #06200f;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a120e;
+  --surface: #111c17;
+  --surface-2: #18261f;
+  --ink: #edf4f0;
+  --ink-2: #c5d2cb;
+  --muted: #8fa198;
+  --line: #22332b;
+  --brand: #2fb874;
+  --brand-strong: #46c886;
+  --brand-ink: #04170d;
+  --brand-soft: #143224;
+  --brand-soft-ink: #7fe0ad;
+  --accent: #ff8a3d;
+  --accent-strong: #ff9d5c;
+  --accent-soft: #3a2212;
+  --accent-soft-ink: #ffb986;
+  --gold: #f5b938;
+  --danger: #ff6b63;
+  --danger-soft: #3a1513;
+  --info: #6ea8ff;
+  --info-soft: #14243d;
+  --warn-soft: #33290f;
+  --warn-ink: #f5cf6b;
+  --shadow-color: 0 0 0;
+  --hero-a: #0f4a30;
+  --hero-b: #06200f;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-soft-ink: var(--brand-soft-ink);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-ink: var(--accent-soft-ink);
+  --color-gold: var(--gold);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-warn-soft: var(--warn-soft);
+  --color-warn-ink: var(--warn-ink);
+  --radius-card: 1.25rem;
+  --shadow-card: 0 1px 2px rgb(var(--shadow-color) / 0.04), 0 4px 16px -4px rgb(var(--shadow-color) / 0.08);
+  --shadow-float: 0 8px 32px -8px rgb(var(--shadow-color) / 0.25);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+/* Comfortable tap targets everywhere (Material guidance: 48dp). */
+button, a, [role="button"], input, select, textarea { touch-action: manipulation; }
+
+:focus-visible {
+  outline: 2.5px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+.safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 0px); }
+.safe-top { padding-top: env(safe-area-inset-top); }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+.hero-gradient {
+  background:
+    radial-gradient(120% 90% at 100% 0%, color-mix(in oklab, var(--accent) 38%, transparent) 0%, transparent 55%),
+    linear-gradient(160deg, var(--hero-a), var(--hero-b));
+}
+
+.kente-dots {
+  background-image: radial-gradient(color-mix(in oklab, #ffffff 16%, transparent) 1.2px, transparent 1.3px);
+  background-size: 14px 14px;
+}
+
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+.skeleton { position: relative; overflow: hidden; background: var(--surface-2); }
+.skeleton::after {
+  content: ""; position: absolute; inset: 0; transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--surface) 60%, transparent), transparent);
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes sheet-up { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
+.animate-sheet { animation: sheet-up 260ms cubic-bezier(0.2, 0.9, 0.3, 1); }
+.animate-fade { animation: fade-in 200ms ease-out; }
+.animate-pop { animation: pop-in 240ms cubic-bezier(0.2, 0.9, 0.3, 1); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
